@@ -1,0 +1,8 @@
+.errorMessage {
+    color:red;
+}
+
+.inputError {
+    border: 3px solid red;
+    background-color: rgba(238,0,2,0.54);
+}
