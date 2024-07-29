@@ -8,9 +8,13 @@ type TaskType = {
   isDone: boolean
 }
 
+
+
 type TaskAssocType = {
   [key: string]: TaskType[]
 }
+
+type FilterValuesType = "all" | "active" | "completed";
 
 function App() {
 
@@ -49,6 +53,19 @@ function App() {
           {...task, title: newTaskTitle}
           : task)})
   }
+
+  const showTasks = (tasksList:TaskType[], filterValue:FilterValuesType)=> {
+    switch (filterValue) {
+      case "active":
+        return tasksList.filter(task=>!task.isDone)
+      case "completed":
+        return tasksList.filter(task=>task.isDone)
+      default:
+        return tasksList
+    }
+  }
+
+
   return (
       <div className="App">
 
